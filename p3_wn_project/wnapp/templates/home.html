@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>What Next App by Jyoti Jha</title>
+<style>
+    * {
+        font-size: 40px;
+        font-family: 'Cambria';
+    }
+    body {
+        background-color: lemonchiffon;
+    }
+    input[type="radio"] {
+        width: 2%;
+        height: 0.5em;
+    }
+</style>
+<script>
+function check() {
+    let name = document.getElementById("name");
+    let msg = document.getElementById("msg");
+    
+    if (name.value === "") {
+        alert("Name should not be empty");
+        msg.innerHTML = "";
+        name.focus();
+        return false;
+    }
+    
+    if (name.value.trim().length < 2) {
+        alert("Name should be at least 2 characters long");
+        msg.innerHTML = "";
+        name.focus();
+        return false;
+    }
+    
+    if (!name.value.match(/^[A-Za-z]+$/)) {
+        alert("Name should contain only alphabets");
+        msg.innerHTML = "";
+        name.focus();
+        return false;
+    }
+    
+    return true;
+}
+</script>
+</head>
+<body>
+<div style="text-align: center;">
+    <h1>What Next App</h1>
+    <form onsubmit="return check()">
+        <input type="text" name="name" placeholder="Enter your name" id="name"/>
+        <br/><br/>
+        <label>Select choice:</label>
+        <input type="radio" name="choice" value="job" checked="true"/> Job
+        <input type="radio" name="choice" value="ms"/> MS
+        <input type="radio" name="choice" value="mba"/> MBA
+        <br/><br/>
+        <input type="submit"/>
+    </form>
+    <h2 id="msg">{{msg}}</h2>
+</div>
+</body>
+</html>
+
